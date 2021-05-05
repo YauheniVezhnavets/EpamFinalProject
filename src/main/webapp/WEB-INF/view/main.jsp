@@ -13,12 +13,10 @@
           </header>
 
             <main class= "main">
-                 <section class="intro">
-                    <div class = "wrapper">
-
-                    </div>
+                 <section class="intro__main">
+                       <div class = "wrapper">
+                               </div>
                  </section>
            </main>
-
     </body>
 </html>

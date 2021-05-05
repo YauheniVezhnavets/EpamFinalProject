@@ -42,10 +42,7 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+
 
 
 
@@ -92,6 +89,9 @@ body {
       line-height: 1.2;
       font-weight: normal;
       color: #102746;
+      background: url(../img/cinema.jpg) no-repeat center;
+      background-size: cover;
+      background-attachment: scroll;
 }
 
 
@@ -168,11 +168,17 @@ body {
 
 /* Intro styles start */
 
-.intro{
+.intro__login{
     min-height: 100vh;
     background: url(../img/cinema.jpg) no-repeat center;
     background-size: cover;
     padding-top:263px;
+    min-height: 100vh;
+}
+
+.intro__main{
+    padding-top: 150px;
+    min-height: 100vh;
 }
 
 .intro__title{
@@ -181,6 +187,7 @@ body {
     line-height: 50px;
     color: white;
     margin-bottom: 22px;
+
 }
 
 .submit-form__info{
@@ -213,13 +220,125 @@ body {
 .submit{
     padding:15px 39px;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 400;
     font-size:24px;
     color:white;
     background: #5d6063;
 }
 
 /* Intro styles end */
+
+
+/* Image styles started */
+
+.main .intro__main .movies__container .image{
+    height: 350px;
+    width: 220px;
+    border-radius: 10%;
+    box-shadow: 0 .5rem 1rem #000;
+    margin: 2rem;
+    float:left;
+}
+
+
+.image img{
+         width: 100%;
+         height: auto;
+         object-fit: cover;
+         border-radius: 10%;
+}
+
+
+.movies__container{
+    margin-left: 150px;
+}
+
+/* Image styles end */
+
+/* About styles start */
+
+#about__block{
+    background: transparent;
+    height:50%
+}
+
+#firstSpan{
+    font-size: 25px;
+    color: white;
+    margin-bottom: 185px;
+    display:block;
+}
+
+#secondSpan{
+    font-size: 20px;
+    color:white;
+    margin-bottom: 120px;
+    display:block;
+}
+
+#thirdSpan{
+    font-size: 15px;
+    color:white;
+    margin-bottom: 20px;
+    display:block;
+}
+
+#mail {
+    color:white;
+}
+
+/* About styles ended */
+
+/* Movies styles started */
+
+.select__item{
+    height:50px;
+    width:150px;
+    margin-left:30%;
+    background-color:transparent;
+    color:white;
+    font-size:15px;
+    padding:0px;
+}
+
+.selected__genre__item{
+    margin-right: 82px;
+    background-color:transparent;
+}
+
+/* Movies styles ended */
+
+
+/* UserRating styles started */
+
+
+.wrapper__rating{
+    margin-left: 150px;
+    max-width: 1060px;
+    margin: 0 auto;
+    color:white;
+
+}
+
+
+.table{
+    width:100%;
+    height:500px;
+    color:black;
+    background-color:#b0aba5;
+}
+
+
+
+
+
+
+/* UserRating styles ended */
+
+.header__nav{
+
+}
+
 
 input{
     margin: 15px;

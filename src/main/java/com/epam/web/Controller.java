@@ -3,6 +3,7 @@ package com.epam.web;
 import com.epam.web.command.Command;
 import com.epam.web.command.CommandFactory;
 import com.epam.web.command.CommandResult;
+import com.epam.web.service.ServiceException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -41,7 +42,7 @@ public class Controller extends HttpServlet {
             CommandResult commandResult = command.execute(request,response);
             page = commandResult.getPage();
             isRedirect = commandResult.isRedirected();
-        } catch (Exception e){
+        } catch (Exception | ServiceException e){
             request.setAttribute("errorMessage",e.getMessage());
             page= ERROR_PAGE;
         }

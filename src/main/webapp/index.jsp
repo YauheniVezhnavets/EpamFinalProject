@@ -1,8 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
 <meta http-equiv="Cache-Control" content="no-cache">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<html lang = "en">
+
+
+<fmt:setLocale value="${sessionScope.local}" />
+<fmt:setBundle basename="local" var="local" />
+
+
+
+<html>
 <head>
     <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
     <title> MovieRating </title>
@@ -14,17 +22,21 @@
         </nav>
 
          <main class= "main">
-               <section class="intro">
+               <section class="intro__login">
                     <div class = "wrapper">
                         <h1 class="intro__title">
-                            LOG IN
+                            <fmt:message bundle="${local}" key="local.label.logIn" />
                         </h1>
                         <form action="${pageContext.request.contextPath}/controller" method="post">
                         <p class "submit-form__info">
                          <input type="hidden" name="command" value="login" />
-                         <input type="text" class="input-form__field" name="username" placeholder=" login" />
-                         <input type="password" class="input-form__field" name="password" placeholder=" password" />
-                          <input type="submit" class="submit" value="submit" />
+                         <input type="text" class="input-form__field" name="username"
+                          placeholder= "<fmt:message bundle="${local}" key="local.placeholder.login" />" />
+
+                         <input type="password" class="input-form__field" name="password"
+                          placeholder="<fmt:message bundle="${local}" key="local.placeholder.password" />" />
+
+                          <input type="submit" class="submit" value= "<fmt:message bundle="${local}" key="local.button.submit" />"/>
                           </p>
                     </div>
                </section>

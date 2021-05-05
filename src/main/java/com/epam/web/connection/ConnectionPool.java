@@ -50,7 +50,7 @@ public class ConnectionPool {
 
         try {
             for (int i = 0; i < POOL_SIZE; i++) {
-                Connection connection = ConnectionFactory.create();
+                Connection connection = connectionFactory.create();
                 ProxyConnection proxyConnection = new ProxyConnection(connection, this);
                 availableConnections.add(proxyConnection);
             }

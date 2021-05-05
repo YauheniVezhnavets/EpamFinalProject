@@ -14,6 +14,7 @@ public class LoginCommand implements Command{
 
     private final UserService userService;
 
+
     private static final String USERNAME = "username";
     private static final String PASSWORD = "password";
 
@@ -24,8 +25,10 @@ public class LoginCommand implements Command{
 
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws DaoException {
+
         String username = request.getParameter(USERNAME);
         String password = request.getParameter(PASSWORD);
+
 
         Optional<User> optionalUser;
         try {
@@ -39,8 +42,7 @@ public class LoginCommand implements Command{
 
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
-            Long id = user.getId();
-            session.setAttribute("id", id);
+            session.setAttribute("user", user);
             return CommandResult.redirect("mainPage");
         } else {
             request.setAttribute("errorMessage", "Invalid user or password");
