@@ -1,16 +1,13 @@
 package com.epam.web.entities;
 
 
-public class Movie implements Identifiable{
+public class Movie implements Identifiable {
 
     private Long id;
     private String name;
     private String pathToImage;
     private String description;
     private Long genreId;
-    private double movieRating;
-    private double [] listUpperAverageRating;
-    private double [] listUnderAverageRating;
 
 
     public Movie(Long id, String name, String pathToImage, String description, Long genreId) {
@@ -19,9 +16,6 @@ public class Movie implements Identifiable{
         this.pathToImage = pathToImage;
         this.description = description;
         this.genreId = genreId;
-        this.listUnderAverageRating = new double[3];
-        this.listUpperAverageRating = new double[3];
-        this.movieRating = 0;
     }
 
     public Long getId() {
@@ -44,24 +38,15 @@ public class Movie implements Identifiable{
         return genreId;
     }
 
-    public double getMovieRating() {
-        return movieRating;
-    }
 
-    public double[] getListUpperAverageRating() {
-        return listUpperAverageRating;
-    }
-
-    public double[] getListUnderAverageRating() {
-        return listUnderAverageRating;
-    }
-
-
-    public void setListUpperAverageRating(double[] listUpperAverageRating) {
-        this.listUpperAverageRating = listUpperAverageRating;
-    }
-
-    public void setListUnderAverageRating(double[] listUnderAverageRating) {
-        this.listUnderAverageRating = listUnderAverageRating;
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pathToImage='" + pathToImage + '\'' +
+                ", description='" + description + '\'' +
+                ", genreId=" + genreId +
+                '}';
     }
 }

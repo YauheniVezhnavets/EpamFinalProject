@@ -31,4 +31,13 @@ public class MovieRatingService {
             throw new ServiceException(e.getMessage(), e);
         }
     }
+
+    public double getMovieRating(long movieId) throws ServiceException {
+        try (DaoHelper daoHelper = daoHelperFactory.create()) {
+            MovieRatingDao movieRatingDao = daoHelper.createMovieRatingDao();
+            return movieRatingDao.getMovieRating(movieId);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage(), e);
+        }
+    }
 }

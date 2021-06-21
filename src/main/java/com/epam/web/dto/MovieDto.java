@@ -58,4 +58,16 @@ public class MovieDto {
         return movieReviews;
     }
 
+    @Override
+    public String toString() {
+        return "MovieDto{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", pathToImage='" + pathToImage + '\'' +
+                ", description='" + description + '\'' +
+                ", genreId=" + genreId +
+                ", rating=" + rating +
+                ", movieReviews=" + movieReviews +
+                '}';
+    }
 }

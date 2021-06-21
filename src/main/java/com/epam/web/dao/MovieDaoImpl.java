@@ -12,6 +12,7 @@ public class MovieDaoImpl extends AbstractDao<Movie> implements MovieDao {
 
     public static final String TABLE_NAME = "movies";
     public static final int MOVIES_PER_PAGE = 4;
+    public static final int COUNT_OF_MOVIES = 5;
 
     private static final String REMOVE_BY_ID = "DELETE FROM movies WHERE id = ?";
     private static final String SELECT_BY_ID = "SELECT * FROM movies WHERE id = ?";
@@ -61,8 +62,8 @@ public class MovieDaoImpl extends AbstractDao<Movie> implements MovieDao {
     }
 
     @Override
-    public int getCountOfMovies () throws DaoException {
-        return 5;
+    public int getCountOfMovies () {
+        return COUNT_OF_MOVIES;
     }
 
     @Override
