@@ -13,9 +13,9 @@ import java.util.Optional;
 public class GetUserCommand implements Command {
 
     public static final String USER = "user";
+    private final static String CURRENT_PAGE = "currentPage";
     private static final String RATING_PAGE = "/WEB-INF/view/rating.jsp";
-    private  final UserService userService;
-
+    private final UserService userService;
 
     public GetUserCommand(UserService userService) {
         this.userService = userService;
@@ -26,12 +26,12 @@ public class GetUserCommand implements Command {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute(USER);
-        long id  = user.getId();
+        long id = user.getId();
         Optional<User> optionalUser = userService.getUserById(id);
 
         session.setAttribute(USER, user);
+        session.setAttribute(CURRENT_PAGE, RATING_PAGE);
 
         return CommandResult.forward(RATING_PAGE);
-
     }
 }

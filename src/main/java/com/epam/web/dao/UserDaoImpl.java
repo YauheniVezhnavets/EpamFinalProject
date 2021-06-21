@@ -18,17 +18,17 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     private static final String UPDATE_USER_RATING = "UPDATE movies_database.user SET rating = ? WHERE id = ?";
 
     public UserDaoImpl(Connection connection) {
-        super(connection, new UserRowMapper(),TABLE_NAME);
+        super(connection, new UserRowMapper(), TABLE_NAME);
     }
 
     @Override
     public Optional<User> findUserByLoginAndPassword(String username, String password) throws DaoException {
-        return executeForSingleResult (FIND_BY_USERNAME_AND_PASSWORD,username,password);
+        return executeForSingleResult(FIND_BY_USERNAME_AND_PASSWORD, username, password);
     }
 
     @Override
     public Optional<User> findUserById(Long id) throws DaoException {
-        return executeForSingleResult (FIND_BY_ID,id);
+        return executeForSingleResult(FIND_BY_ID, id);
     }
 
     @Override
@@ -39,6 +39,4 @@ public class UserDaoImpl extends AbstractDao<User> implements UserDao {
     public void updateUserRatingById(String userRating, Long id) throws DaoException {
         executeUpdate(UPDATE_USER_RATING, userRating, id);
     }
-
-
 }

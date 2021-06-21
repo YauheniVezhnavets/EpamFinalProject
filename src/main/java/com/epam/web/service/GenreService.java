@@ -14,37 +14,29 @@ public class GenreService {
 
     private DaoHelperFactory daoHelperFactory;
 
-
     public GenreService(DaoHelperFactory daoHelperFactory) {
         this.daoHelperFactory = daoHelperFactory;
     }
 
-
-    public List <Genre> getAllGenres() throws ServiceException {
+    public List<Genre> getAllGenres() throws ServiceException {
 
         try (DaoHelper helper = daoHelperFactory.create()) {
             GenreDao genreDao = helper.createGenreDao();
-            List <Genre> genres = genreDao.getAll();
-
+            List<Genre> genres = genreDao.getAll();
             return genres;
         } catch (Exception e) {
             throw new ServiceException(e);
         }
     }
 
-    public Optional <Genre> getGenreById(Long id) throws ServiceException {
+    public Optional<Genre> getGenreById(Long id) throws ServiceException {
 
         try (DaoHelper helper = daoHelperFactory.create()) {
             GenreDao genreDao = helper.createGenreDao();
-            Optional <Genre> genre = genreDao.getById(id);
-
+            Optional<Genre> genre = genreDao.getById(id);
             return genre;
         } catch (Exception e) {
             throw new ServiceException(e);
         }
     }
-
-
-
-
 }

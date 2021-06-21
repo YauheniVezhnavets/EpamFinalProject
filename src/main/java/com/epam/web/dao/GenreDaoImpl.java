@@ -15,7 +15,6 @@ public class GenreDaoImpl extends AbstractDao<Genre> implements GenreDao {
     private static final String SELECT_ALL_GENRES = "SELECT * FROM genres";
     private static final String SELECT_GENRE_BY_ID = "SELECT * FROM genres where id =? ";
 
-
     public GenreDaoImpl(Connection connection) {
         super(connection, new GenreRowMapper(), TABLE_NAME);
     }

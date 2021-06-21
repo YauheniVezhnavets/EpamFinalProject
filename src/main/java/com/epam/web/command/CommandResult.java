@@ -5,7 +5,6 @@ public class CommandResult {
     private final String page;
     private final boolean isRedirected;
 
-
     private CommandResult(String page, boolean isRedirected) {
         this.page = page;
         this.isRedirected = isRedirected;

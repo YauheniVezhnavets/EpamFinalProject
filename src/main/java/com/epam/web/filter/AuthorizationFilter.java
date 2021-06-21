@@ -12,7 +12,6 @@ import java.util.*;
 public class AuthorizationFilter implements Filter  {
     private final Map<String, List <Role>> roleMap = new HashMap<>();
     private final static String LOGIN = "login";
-    private final static String INVALID_LOGIN = "invalidLogin";
     private final static String LOGOUT = "logout";
     private final static String MAIN = "mainPage";
     private final static String ABOUT = "about";
@@ -28,16 +27,18 @@ public class AuthorizationFilter implements Filter  {
     private final static String DELETE_MOVIE = "deleteMovie";
     private final static String CHANGE_USER_RATING = "changeUserRating";
     private final static String GET_MOVIES_FOR_POSSIBLE_DELETE = "getMoviesForPossibleDelete";
+    private final static String ADD_REVIEW_TO_MOVIE = "addReviewToMovie";
+    private final static String PAGE_ACTION = "pageAction";
+    private final static String ADD_MOVIE_RATING_COMMAND = "addMovieRating";
 
 
 
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        roleMap.put(INVALID_LOGIN, Arrays.asList(Role.USER, Role.ADMIN, Role.UNKNOWN));
+
         roleMap.put(LOGIN, Arrays.asList(Role.USER, Role.ADMIN, Role.UNKNOWN));
         roleMap.put(CHANGE_LANGUAGE, Arrays.asList(Role.USER, Role.ADMIN, Role.UNKNOWN));
-
         roleMap.put(LOGOUT, Arrays.asList(Role.USER, Role.ADMIN ));
         roleMap.put(MAIN, Arrays.asList(Role.USER, Role.ADMIN ));
         roleMap.put(ABOUT, Collections.singletonList(Role.USER));
@@ -52,6 +53,9 @@ public class AuthorizationFilter implements Filter  {
         roleMap.put(DELETE_MOVIE, Collections.singletonList(Role.ADMIN));
         roleMap.put(GET_MOVIES_FOR_POSSIBLE_DELETE, Collections.singletonList(Role.ADMIN));
         roleMap.put(ADD_MOVIE_PAGE, Collections.singletonList(Role.ADMIN));
+        roleMap.put(ADD_REVIEW_TO_MOVIE,Arrays.asList(Role.USER, Role.ADMIN ));
+        roleMap.put(PAGE_ACTION,Collections.singletonList(Role.USER));
+        roleMap.put(ADD_MOVIE_RATING_COMMAND,Collections.singletonList(Role.USER));
 
 
 

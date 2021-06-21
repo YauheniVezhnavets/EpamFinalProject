@@ -64,10 +64,17 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
             return Optional.empty();
         }
     }
-
+    protected double executeAvg(String query, String columnName, Object... params) throws DaoException {
+        try (PreparedStatement statement = createStatement(query, params);
+             ResultSet resultSet = statement.executeQuery()) {
+            resultSet.next();
+            return resultSet.getDouble(columnName);
+        } catch (SQLException e) {
+            throw new DaoException(e.getMessage(), e);
+        }
+    }
 
     @Override
-
     public Optional<T> getById(Long id) throws DaoException {
         String query = "SELECT * FROM " + tableName + "WHERE ID = " + id;
         return executeForSingleResult(query);

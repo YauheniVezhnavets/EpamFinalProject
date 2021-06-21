@@ -11,21 +11,23 @@ import javax.servlet.http.HttpSession;
 
 public class ReviewMovieCommand implements Command {
 
+    private static final String SHOW_MOVIE = "movie&id=";
+
     private final ReviewService reviewService;
 
     public ReviewMovieCommand(ReviewService reviewService) {
         this.reviewService = reviewService;
     }
 
-
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws DaoException, ServiceException {
         HttpSession session = request.getSession();
-        String movieID = request.getParameter("movieId");
+        String movieIdAsString = request.getParameter("movieId");
+        long movieId = Long.parseLong(movieIdAsString);
         User user = (User) session.getAttribute("user");
         long userId = user.getId();
-
-
-         return null;
+        String review = request.getParameter("review");
+        reviewService.addNewReviewToMovie(review, movieId, userId);
+        return CommandResult.redirect(SHOW_MOVIE + movieId);
     }
 }

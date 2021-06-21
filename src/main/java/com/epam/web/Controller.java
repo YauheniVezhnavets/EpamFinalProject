@@ -5,6 +5,8 @@ import com.epam.web.command.CommandFactory;
 import com.epam.web.command.CommandResult;
 import com.epam.web.dao.DaoException;
 import com.epam.web.service.ServiceException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +17,7 @@ import java.io.IOException;
 
 public class Controller extends HttpServlet {
 
+    private static final Logger LOGGER = LogManager.getLogger(Controller.class);
     private final static String COMMAND = "command";
     private final static String ERROR_PAGE = "/error.jsp";
     private final static String COMMAND_HEADER = "/controller?command=";
@@ -43,8 +46,10 @@ public class Controller extends HttpServlet {
             CommandResult commandResult = command.execute(request,response);
             page = commandResult.getPage();
             isRedirect = commandResult.isRedirected();
-        } catch (DaoException | ServiceException e){
+
+        } catch (ServiceException | Exception e ){
             request.setAttribute("errorMessage",e.getMessage());
+            LOGGER.error(e.getMessage(), e);
             page= ERROR_PAGE;
         }
 

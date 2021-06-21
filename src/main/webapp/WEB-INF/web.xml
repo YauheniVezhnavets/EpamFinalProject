@@ -2,18 +2,28 @@
           xmlns="http://xmlns.jcp.org/xml/ns/javaee"
           xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
           http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
-  <display-name>Archetype Created Web Application</display-name>
-  <title> Movie rating </title>>
+    <display-name>Archetype Created Web Application</display-name>
+    <title> Movie UserRating </title>>
 
 
-  <servlet>
-    <servlet-name>main</servlet-name>
-    <servlet-class>com.epam.web.Controller </servlet-class>
-  </servlet>
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>com.epam.web.Controller </servlet-class>
+    </servlet>
 
-  <servlet-mapping>
-    <servlet-name>main</servlet-name>
-    <url-pattern>/controller</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/controller</url-pattern>
+    </servlet-mapping>
+
+
+    <filter>
+        <filter-name>authorization-filter</filter-name>
+        <filter-class>com.epam.web.filter.AuthorizationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authorization-filter</filter-name>
+        <servlet-name>main</servlet-name>
+    </filter-mapping>
 
 </web-app>

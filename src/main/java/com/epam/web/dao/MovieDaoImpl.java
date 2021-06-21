@@ -11,20 +11,22 @@ import java.util.Optional;
 public class MovieDaoImpl extends AbstractDao<Movie> implements MovieDao {
 
     public static final String TABLE_NAME = "movies";
+    public static final int MOVIES_PER_PAGE = 4;
 
     private static final String REMOVE_BY_ID = "DELETE FROM movies WHERE id = ?";
     private static final String SELECT_BY_ID = "SELECT * FROM movies WHERE id = ?";
     private static final String SELECT_ALL_MOVIES = "SELECT * FROM movies ";
-    private static final String SELECT_MOVIES_BY_GENRE = "SELECT * FROM movies U JOIN genres R on U.genre_id=R.id where genre = ? ";
+    private static final String SELECT_ALL_MOVIES_PER_PAGE = "SELECT * FROM movies LIMIT ? OFFSET ? ";
+    private static final String SELECT_MOVIES_BY_GENRE = "SELECT * FROM movies U JOIN genres R on U.genre_id=R.id" +
+            " where genre = ? ";
 
-    private static final String ADD_MOVIE = "INSERT INTO movies (name, path_to_image, description, genre_id)" +
-            " VALUES (?, ?, ?, ?)";
+    private static final String ADD_MOVIE = "INSERT INTO movies U JOIN genres R on U.genre_id=R.id (name," +
+            " path_to_image, description, genre_id) VALUES (?, ?, ?, ?)";
     public static final String UPDATE_MOVIE = "UPDATE films SET name = ?, path_to_image = ?, description = ?," +
             " genre_id = ? WHERE id = ?";
 
     public MovieDaoImpl(Connection connection) {
         super(connection, new MovieRowMapper(), TABLE_NAME);
-
     }
 
     @Override
@@ -54,7 +56,23 @@ public class MovieDaoImpl extends AbstractDao<Movie> implements MovieDao {
 
     @Override
     public List<Movie> getMoviesForPage(int pageNumber) throws DaoException {
-        return null;
+        int offset = pageNumber * MOVIES_PER_PAGE;
+        return executeQuery(SELECT_ALL_MOVIES_PER_PAGE, MOVIES_PER_PAGE, offset);
+    }
+
+    @Override
+    public int getCountOfMovies () throws DaoException {
+        return 5;
+    }
+
+    @Override
+    public int getPagesCount() throws DaoException {
+        int recordsCount = getCountOfMovies();
+        if (recordsCount % MOVIES_PER_PAGE == 0) {
+            return recordsCount / MOVIES_PER_PAGE;
+        } else {
+            return recordsCount / MOVIES_PER_PAGE + 1;
+        }
     }
 
     @Override
@@ -62,5 +80,4 @@ public class MovieDaoImpl extends AbstractDao<Movie> implements MovieDao {
         executeUpdate(UPDATE_MOVIE, updatedFilm.getName(), updatedFilm.getPathToImage(), updatedFilm.getDescription(),
                 updatedFilm.getGenreId(), updatedFilm.getId());
     }
-
 }

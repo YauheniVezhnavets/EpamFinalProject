@@ -13,27 +13,7 @@
                <div class = "header__logo">
                    <fmt:message bundle="${local}" key="local.label.movieRating" />
                </div>
-               <nav class= "header__nav">
-                  <ul class="header__list">
-                   <div class="english">
-                       <form action="${pageContext.request.contextPath}/controller?command=changeLanguage" method="post" >
-                           <button name="language" value="english" type="submit" />
-                       </form>
-                   </div>
-
-                   <div class="france">
-                       <form action="${pageContext.request.contextPath}/controller?command=changeLanguage" method="post" >
-                           <button  name="language" value="belarus" type="submit" />
-                       </form>
-                   </div>
-
-                   <div class="russian">
-                       <form action="${pageContext.request.contextPath}/controller?command=changeLanguage" method="post" >
-                           <button name="language" value="russian" type="submit" />
-                       </form>
-                   </div>
-                 </ul>
-               </nav>
+               <jsp:include page="local.jsp" />
             </div>
         </div>
      </body>

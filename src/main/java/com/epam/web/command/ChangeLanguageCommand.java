@@ -16,6 +16,7 @@ public class ChangeLanguageCommand implements Command {
 
     private static final String LANGUAGE = "language";
     private static final String LOCAL = "local";
+    private static final String CURRENT_PAGE = "currentPage";
 
     private final static String INDEX = "/index.jsp";
 
@@ -24,6 +25,7 @@ public class ChangeLanguageCommand implements Command {
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws DaoException {
         String language = request.getParameter(LANGUAGE);
         HttpSession session = request.getSession();
+        String page = (String) session.getAttribute(CURRENT_PAGE);
 
         switch (language) {
             case BELARUS:
@@ -35,6 +37,7 @@ public class ChangeLanguageCommand implements Command {
             default:
                 session.setAttribute(LOCAL, ENGLISH_LOCAL);
         }
-        return  CommandResult.forward(INDEX);
+
+        return page != null ? CommandResult.forward(page) : CommandResult.forward(INDEX);
     }
 }

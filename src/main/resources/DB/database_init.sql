@@ -28,10 +28,20 @@ ALTER TABLE Movies ADD FOREIGN KEY (genre_id) REFERENCES genres(id);
 
 CREATE TABLE reviews (
     id bigint primary key not null auto_increment,
-    movie_id BIGINT,
-    FOREIGN KEY(movie_id) REFERENCES movies(id),
-    user_id BIGINT,
-    FOREIGN KEY(user_id) REFERENCES user(id),
     review VARCHAR(255)
+    movie_id BIGINT,
+    constraint FOREIGN KEY(movie_id) REFERENCES movies(id),
+    user_id BIGINT,
+    constraint FOREIGN KEY(user_id) REFERENCES user(id),
 );
 
+CREATE TABLE movieratings (
+    id bigint primary key not null auto_increment,
+    movie_id BIGINT,
+    constraint FOREIGN KEY(movie_id) REFERENCES movies(id),
+    user_id BIGINT,
+    constraint FOREIGN KEY(user_id) REFERENCES user(id),
+    Rating double,
+    CONSTRAINT MovieID_UserID UNIQUE (movie_id, user_id),
+    CONSTRAINT movie_ratings_chk CHECK (((rating >= 0) and (rating <= 10.0)))
+);

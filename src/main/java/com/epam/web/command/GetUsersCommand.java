@@ -7,14 +7,15 @@ import com.epam.web.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class GetUsersCommand implements Command {
 
-    private  final UserService userService;
-    private static final String USERS= "users";
+    private final UserService userService;
+    private static final String USERS = "users";
+    private final static String CURRENT_PAGE = "currentPage";
     private static final String USERS_PAGE = "/WEB-INF/view/users.jsp";
-
 
     public GetUsersCommand(UserService userService) {
         this.userService = userService;
@@ -25,7 +26,10 @@ public class GetUsersCommand implements Command {
 
         List<User> users = userService.getAllUsers();
 
-        request.getSession().setAttribute(USERS,users);
+        HttpSession session = request.getSession();
+
+        session.setAttribute(USERS, users);
+        session.setAttribute(CURRENT_PAGE, USERS_PAGE);
 
         return CommandResult.forward(USERS_PAGE);
     }

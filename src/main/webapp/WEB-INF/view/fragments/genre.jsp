@@ -11,7 +11,7 @@
 
 
         <form action="${pageContext.request.contextPath}/controller?command=moviesByGenre" method="post">
-         <select class = "select__item" name ="genre" onchange="this.form.submit();">
+         <select class = "select__item" name ="genre" onchange="this.form.submit()">
              <option class = "selected__genre__item" disabled selected>
                    <fmt:message bundle="${local}"  key="local.genre.chooseGenre" />
              </option>
@@ -32,7 +32,7 @@
                     <fmt:message bundle="${local}"  key="local.genre.drama" /> </a>
               </option>
 
-              <option class = "header__item" value = "detective">
+              <option class = "selected__genre__item" value = "detective">
                     <fmt:message bundle="${local}"  key="local.genre.detective" /> </a>
               </option>
 

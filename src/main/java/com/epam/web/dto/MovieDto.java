@@ -1,26 +1,31 @@
 package com.epam.web.dto;
 
+import com.epam.web.entities.Movie;
 import com.epam.web.entities.Review;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class MovieDto {
 
-    private final Long id;
-    private final String name;
-    private final String pathToImage;
-    private final String description;
-    private final String genre;
-    private final String rating;
-    private final List <Review> movieReviews;
+    private Long id;
+    private String name;
+    private String pathToImage;
+    private String description;
+    private Long genreId;
+    private Double rating;
+    private List <Review> movieReviews;
 
+    public MovieDto() {
+    }
 
-    public MovieDto(Long id, String name, String pathToImage, String description, String genre, String rating, List<Review> movieReviews) {
-        this.id = id;
-        this.name = name;
-        this.pathToImage = pathToImage;
-        this.description = description;
-        this.genre = genre;
+        public MovieDto(Movie movie, Double rating, List<Review> movieReviews) {
+
+        this.id = movie.getId();
+        this.name = movie.getName();
+        this.pathToImage = movie.getPathToImage();
+        this.description = movie.getDescription();
+        this.genreId = movie.getGenreId();
         this.rating = rating;
         this.movieReviews = movieReviews;
     }
@@ -41,15 +46,16 @@ public class MovieDto {
         return description;
     }
 
-    public String getGenre() {
-        return genre;
+    public Long getGenre() {
+        return genreId;
     }
 
-    public String getRating() {
+    public Double getRating() {
         return rating;
     }
 
     public List<Review> getMovieReviews() {
         return movieReviews;
     }
+
 }

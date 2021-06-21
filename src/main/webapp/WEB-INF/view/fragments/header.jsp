@@ -23,6 +23,7 @@
                     </li>
                     <li class = "header__item">
                        <a href="${pageContext.request.contextPath}/controller?command=movies" class="header__link">
+                       <c:set var = "page" scope = "session" value = "0"/>
                        <fmt:message bundle="${local}" key="local.menu.movies" /> </a>
                     </li>
                     <li class = "header__item">
@@ -45,6 +46,9 @@
                         <fmt:message bundle="${local}" key="local.menu.deleteMovie" /> </a>
                    </li>
                   </c:if>
+                    <li class = "header__item">
+                     <jsp:include page="local.jsp" />
+                    </li>
                     <li class = "header__item">
                        <a href="${pageContext.request.contextPath}/controller?command=logout"  class="header__link">
                        <fmt:message bundle="${local}" key="local.menu.logout" /> </a>

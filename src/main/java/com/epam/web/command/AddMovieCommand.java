@@ -23,28 +23,43 @@ public class AddMovieCommand implements Command {
     private static final String PATH_TO_IMAGE = "pathToImage";
     private static final String DESCRIPTION = "description";
     private static final String GENRE_ID = "genreId";
-    private static final String CONSTANT_PATH = "/Users/vez/Documents/projects/EpamFinalProject/src/main/webapp/static/img/";
-
 
     public AddMovieCommand(MovieService movieService) {
         this.movieService = movieService;
     }
 
-
     @Override
     public CommandResult execute(HttpServletRequest request, HttpServletResponse response) throws DaoException, ServiceException {
 
-            String movieName = request.getParameter(NAME);
-            String pathToImage = request.getParameter(PATH_TO_IMAGE);
-            String description = request.getParameter(DESCRIPTION);
-            String genreIdAsString = request.getParameter(GENRE_ID);
-            Long genreId = Long.parseLong(genreIdAsString);
+        String movieName = request.getParameter(NAME);
+        String pathToImage = request.getParameter(PATH_TO_IMAGE);
+        String description = request.getParameter(DESCRIPTION);
+        String genreIdAsString = request.getParameter(GENRE_ID);
+        Long genreId = Long.parseLong(genreIdAsString);
+
+        movieService.saveMovie(movieName, pathToImage, description, genreId);
+
+        return CommandResult.redirect(ADD_MOVIE_PAGE_COMMAND);
+    }
+}
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+//    private static final String CONSTANT_PATH = "/Users/vez/Documents/projects/EpamFinalProject/src/main/webapp/static/img/";
 //        try {
 //            ServletFileUpload servletFileUpload = new ServletFileUpload(new DiskFileItemFactory());
 //            List<FileItem> items = servletFileUpload.parseRequest(request);
@@ -54,16 +69,9 @@ public class AddMovieCommand implements Command {
 //                fileItem.write(file);
 //                String pathToImage = file.getAbsolutePath().substring(63);
 
-                movieService.saveMovie(movieName, pathToImage, description, genreId);
-//            }
-//
+
 //        } catch (FileUploadException e) {
 //            e.printStackTrace();
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-
-
-        return CommandResult.redirect(ADD_MOVIE_PAGE_COMMAND);
-    }
-}
