@@ -73,6 +73,15 @@ public abstract class AbstractDao<T extends Identifiable> implements Dao<T> {
             throw new DaoException(e.getMessage(), e);
         }
     }
+    protected long getGenreId(String query, String columnName, Object... params) throws DaoException {
+        try (PreparedStatement statement = createStatement(query, params);
+             ResultSet resultSet = statement.executeQuery()) {
+            resultSet.next();
+            return resultSet.getLong(columnName);
+        } catch (SQLException e) {
+            throw new DaoException(e.getMessage(), e);
+        }
+    }
 
     @Override
     public Optional<T> getById(Long id) throws DaoException {

@@ -41,10 +41,14 @@
                            key="local.button.submit" />"/>
                           </p>
                            <c:if test="${requestScope.errorMessage}">
-                              <h2 style="color:red; font-size: 20px"> Invalid login or password. Please repeat</h2>
+                              <h2 style="color:red; font-size: 20px">
+                                <fmt:message bundle="${local}" key="local.message.invalidLogin" />
+                              </h2>
                            </c:if>
                            <c:if test="${requestScope.bannedMessage}">
-                              <h2 style="color:red; font-size: 20px"> Sorry. But you banned on this site</h2>
+                              <h2 style="color:red; font-size: 20px">
+                              <fmt:message bundle="${local}" key="local.message.bannedUser" />
+                              </h2>
                            </c:if>
                     </div>
                </section>

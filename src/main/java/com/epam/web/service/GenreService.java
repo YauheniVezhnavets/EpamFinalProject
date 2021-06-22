@@ -39,4 +39,16 @@ public class GenreService {
             throw new ServiceException(e);
         }
     }
+
+    public long getGenreIdByName(String genreName) throws ServiceException {
+
+        try (DaoHelper helper = daoHelperFactory.create()) {
+            GenreDao genreDao = helper.createGenreDao();
+            Long genreId = genreDao.getGenreIdByName(genreName);
+            return genreId;
+        } catch (Exception e) {
+            throw new ServiceException(e);
+        }
+    }
+
 }

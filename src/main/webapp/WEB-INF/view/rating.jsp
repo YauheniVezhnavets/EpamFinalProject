@@ -24,7 +24,7 @@
             <main class= "main">
                  <section class="intro__main">
                  <div class = "wrapper__rating">
-                          <p style= "font-size:50px" > Name: ${sessionScope.user.name} </p>
+                          <p style= "font-size:50px" > Name  : ${sessionScope.user.name} </p>
                            <br/>
                           <p style= "font-size:30px" >  Status: ${sessionScope.user.userRating} </p>
                  </div>

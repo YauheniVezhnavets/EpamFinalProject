@@ -1,6 +1,7 @@
 package com.epam.web.command;
 
 import com.epam.web.dao.DaoException;
+import com.epam.web.service.GenreService;
 import com.epam.web.service.MovieService;
 import com.epam.web.service.ServiceException;
 import org.apache.commons.fileupload.FileItem;
@@ -16,16 +17,18 @@ import java.util.List;
 public class AddMovieCommand implements Command {
 
     private MovieService movieService;
+    private GenreService genreService;
 
     private final static String ADD_MOVIE_PAGE_COMMAND = "addMoviePage";
 
     private static final String NAME = "name";
     private static final String PATH_TO_IMAGE = "pathToImage";
     private static final String DESCRIPTION = "description";
-    private static final String GENRE_ID = "genreId";
+    private static final String GENRE_ID = "genre";
 
-    public AddMovieCommand(MovieService movieService) {
+    public AddMovieCommand(MovieService movieService, GenreService genreService) {
         this.movieService = movieService;
+        this.genreService = genreService;
     }
 
     @Override
@@ -35,9 +38,16 @@ public class AddMovieCommand implements Command {
         String pathToImage = request.getParameter(PATH_TO_IMAGE);
         String description = request.getParameter(DESCRIPTION);
         String genreIdAsString = request.getParameter(GENRE_ID);
-        Long genreId = Long.parseLong(genreIdAsString);
 
-        movieService.saveMovie(movieName, pathToImage, description, genreId);
+
+        try {
+            Long genreId = genreService.getGenreIdByName(genreIdAsString);
+             movieService.saveMovie(movieName, pathToImage, description, genreId);
+        } catch (ServiceException e) {
+            request.setAttribute("incorrectGenre", true);
+            return CommandResult.forward("/WEB-INF/view/adminAddMovie.jsp");
+        }
+
 
         return CommandResult.redirect(ADD_MOVIE_PAGE_COMMAND);
     }

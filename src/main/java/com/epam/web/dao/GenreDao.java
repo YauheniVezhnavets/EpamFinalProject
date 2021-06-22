@@ -31,4 +31,13 @@ public interface GenreDao extends Dao <Genre> {
 
     List <Genre> getAllGenres() throws DaoException;
 
+    /**
+     * returns genre id
+     * @param genreName is name of the specified movie
+     * @return genre id
+     * @throws DaoException if request to the storage is invalid
+     */
+
+    long getGenreIdByName(String genreName) throws DaoException;
+
 }

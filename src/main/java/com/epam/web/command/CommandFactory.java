@@ -2,10 +2,7 @@ package com.epam.web.command;
 
 
 import com.epam.web.dao.DaoHelperFactory;
-import com.epam.web.service.MovieRatingService;
-import com.epam.web.service.MovieService;
-import com.epam.web.service.ReviewService;
-import com.epam.web.service.UserService;
+import com.epam.web.service.*;
 
 public class CommandFactory {
 
@@ -61,7 +58,7 @@ public class CommandFactory {
             case MOVIES_BY_GENRE:
                 return new ShowMoviesByGenreCommand(new MovieService(daoHelperFactory));
             case ADD_MOVIE:
-                return new AddMovieCommand(new MovieService(daoHelperFactory));
+                return new AddMovieCommand(new MovieService(daoHelperFactory), new GenreService(daoHelperFactory));
             case ADD_MOVIE_RATING_COMMAND:
                 return new AddMovieRatingCommand(new MovieRatingService(daoHelperFactory));
             case GET_MOVIES_FOR_POSSIBLE_DELETE:

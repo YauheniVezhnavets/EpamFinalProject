@@ -21,8 +21,8 @@ public class MovieDaoImpl extends AbstractDao<Movie> implements MovieDao {
     private static final String SELECT_MOVIES_BY_GENRE = "SELECT * FROM movies U JOIN genres R on U.genre_id=R.id" +
             " where genre = ? ";
 
-    private static final String ADD_MOVIE = "INSERT INTO movies U JOIN genres R on U.genre_id=R.id (name," +
-            " path_to_image, description, genre_id) VALUES (?, ?, ?, ?)";
+    private static final String ADD_MOVIE = "INSERT INTO movies (name, path_to_image, description, genre_id)" +
+            " VALUES (?, ?, ?, ?)";
     public static final String UPDATE_MOVIE = "UPDATE films SET name = ?, path_to_image = ?, description = ?," +
             " genre_id = ? WHERE id = ?";
 

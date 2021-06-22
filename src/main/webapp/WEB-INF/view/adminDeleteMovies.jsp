@@ -22,8 +22,12 @@
           <table class="table" >
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Action</th>
+                <th>
+                  <fmt:message bundle="${local}" key="local.menu.movies" />
+                </th>
+                <th>
+                  <fmt:message bundle="${local}" key="local.menu.action" />
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -34,7 +38,8 @@
                      <tr>
                        <th>${movie.name}</th>
                        <th>
-                          <input type="submit"  value= "Delete"/>
+                          <input type="submit"  value= "<fmt:message bundle="${local}"
+                           key="local.button.delete" />"/>
                        </th>
                     </tr>
                 </form>

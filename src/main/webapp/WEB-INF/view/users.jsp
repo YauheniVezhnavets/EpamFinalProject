@@ -23,10 +23,18 @@
                 <table class="table" >
              <thead>
             <tr>
-                <th>Name</th>
-                <th>Current Rating</th>
-                <th>Choose Rating</th>
-                <th>Change Rating</th>
+                <th>
+                    <fmt:message bundle="${local}" key="local.profile.name" />
+                </th>
+                <th>
+                 <fmt:message bundle="${local}" key="local.menu.currentRating" />
+                </th>
+                <th>
+                    <fmt:message bundle="${local}" key="local.menu.chooseRating" />
+                </th>
+                <th>
+                    <fmt:message bundle="${local}" key="local.menu.changeRating" />
+                </th>
             </tr>
              </br>
              </br>
@@ -56,7 +64,8 @@
                       </select>
                     </th>
                       <th>
-                           <input type="submit" value="Change">
+                           <input type="submit" value= "<fmt:message bundle="${local}"
+                                key="local.button.change" />"/
                       </th>
                 </tr>
                </form>

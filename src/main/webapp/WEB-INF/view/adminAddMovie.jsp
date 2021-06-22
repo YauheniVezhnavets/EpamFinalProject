@@ -21,16 +21,30 @@
      <section class="intro__main">
          <div class = "wrapper">
            <form action="${pageContext.request.contextPath}/controller?command=addMovie" method="post" >
-            <h1>Add Movie</h1>
+            <h1 style="color:white">
+            <fmt:message bundle="${local}" key="local.menu.addMovie" />
+            </h1>
             <hr/>
-            <input type="text" name="pathToImage"  placeholder="pathToImage" />
+            <input type="text" name="pathToImage"
+             placeholder="<fmt:message bundle="${local}" key="local.movie.pathToImage" />" />
 
-            <input type="text" name="name" placeholder="name" />
-            <input type="text" name="description" placeholder="description" />
-            <input type="text" name="genreId"  placeholder="genreId" >
+            <input type="text" name="name"
+            placeholder="<fmt:message bundle="${local}" key="local.movie.name" />" />
 
-            <input type="submit" value="Submit">
+            <input type="text" name="description"
+            placeholder="<fmt:message bundle="${local}" key="local.movie.description" />" />
+
+            <input type="text" name="genre"
+             placeholder="<fmt:message bundle="${local}" key="local.movie.genre" />" />
+
+            <input type="submit" value= "<fmt:message bundle="${local}"
+                  key="local.button.addMovie" />"/>
            </form>
+           <c:if test="${requestScope.incorrectGenre}">
+               <h2 style="color:red; font-size: 20px">
+                <fmt:message bundle="${local}" key="local.message.incorrectGenre" />
+               </h2>
+           </c:if>
          </div>
       </section>
     </main>

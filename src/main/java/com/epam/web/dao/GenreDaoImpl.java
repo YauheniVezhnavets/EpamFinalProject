@@ -12,8 +12,10 @@ import java.util.Optional;
 public class GenreDaoImpl extends AbstractDao<Genre> implements GenreDao {
 
     public static final String TABLE_NAME = "genres";
+    private static final String COLUMN = "ID";
     private static final String SELECT_ALL_GENRES = "SELECT * FROM genres";
     private static final String SELECT_GENRE_BY_ID = "SELECT * FROM genres where id =? ";
+    private static final String GET_GENRE_ID_BY_GENRE_NAME = "SELECT * FROM genres where genre = ? ";
 
     public GenreDaoImpl(Connection connection) {
         super(connection, new GenreRowMapper(), TABLE_NAME);
@@ -22,11 +24,16 @@ public class GenreDaoImpl extends AbstractDao<Genre> implements GenreDao {
 
     @Override
     public Optional<Genre> getGenreById(Long id) throws DaoException {
-        return executeForSingleResult(SELECT_GENRE_BY_ID,id);
+        return executeForSingleResult(SELECT_GENRE_BY_ID, id);
     }
 
     @Override
     public List<Genre> getAllGenres() throws DaoException {
         return executeQuery(SELECT_ALL_GENRES);
     }
+
+    public long getGenreIdByName(String genreName) throws DaoException {
+        return getGenreId(GET_GENRE_ID_BY_GENRE_NAME, COLUMN, genreName);
+    }
+
 }
