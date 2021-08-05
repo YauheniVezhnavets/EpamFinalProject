@@ -1,0 +1,401 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+
+
+
+/* lato-regular - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('../fonts/lato-v17-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v17-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lato-700 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../fonts/lato-v17-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v17-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lato-900 - latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+       url('../fonts/lato-v17-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('../fonts/lato-v17-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing : inherit;
+}
+
+body {
+      font-family: 'Lato';
+      font-style: normal;
+      font-size: 16px;
+      line-height: 1.2;
+      font-weight: normal;
+      color: #102746;
+      background: url(../img/cinema.jpg) no-repeat center;
+      background-size: cover;
+      background-attachment: scroll;
+}
+
+
+.wrapper{
+    max-width: 1060px;
+    margin: 0 auto;
+}
+
+
+/* Header styles start */
+.header{
+
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+}
+
+.header__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding-top: 24px;
+}
+
+.header__list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header__logo{
+    font-size: 24px;
+    line-height: 36px;
+    color: white;
+}
+
+.header__item{
+    margin-right: 82px;
+}
+
+.header__item:last-child{
+    margin-right: 0;
+}
+
+.header__link{
+    font-size: 18px;
+    line-height: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+
+.header__link:hover, .header__link:focus, .header__link: active{
+    opacity: 0.5;
+}
+
+/* Header styles end */
+
+
+/* Login-Header styles start */
+
+.header{
+
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+}
+
+
+/* Login-Header styles end */
+
+
+/* Intro styles start */
+
+.intro__login{
+    min-height: 100vh;
+    padding-top:263px;
+    min-height: 100vh;
+}
+
+.intro__main{
+    padding-top: 150px;
+    min-height: 100vh;
+}
+
+.intro__title{
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 50px;
+    color: white;
+    margin-bottom: 22px;
+
+}
+
+.submit-form__info{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+
+.input-form__field{
+    width 297px;
+    background-color:transparent;
+    background-size: 20px;
+    border:0;
+    border-bottom:2px solid #BFC0C5;
+    margin-right:60px;
+    padding-left:50px;
+    padding-left:22px;
+    font-weight: 500;
+    font-size:18px;
+    color:white;
+}
+
+.input-form__field::placeholder{
+    font-weight: 500;
+    font-size:18px;
+    color:white;
+}
+
+
+.submit{
+    padding:15px 39px;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size:24px;
+    color:white;
+    background: #5d6063;
+}
+
+.submit__movie{
+     padding:15px 39px;
+     text-transform: uppercase;
+     font-weight: 200;
+     font-size: 12px;
+     color:white;
+     background: #5d6063;
+}
+
+/* Intro styles end */
+
+
+/* Image styles started */
+
+.main .intro__main .movies__container .image{
+    height: 350px;
+    width: 220px;
+    border-radius: 10%;
+    box-shadow: 0 .5rem 1rem #000;
+    margin: 2rem;
+    float:left;
+}
+
+
+.image img{
+         width: 100%;
+         height: auto;
+         object-fit: cover;
+         border-radius: 10%;
+}
+
+
+.movies__container{
+    margin-left: 150px;
+}
+
+/* Image styles end */
+
+/* About styles start */
+
+#about__block{
+    background: transparent;
+    height:50%
+}
+
+#firstSpan{
+    font-size: 25px;
+    color: white;
+    margin-bottom: 185px;
+    display:block;
+}
+
+#secondSpan{
+    font-size: 20px;
+    color:white;
+    margin-bottom: 120px;
+    display:block;
+}
+
+#thirdSpan{
+    font-size: 15px;
+    color:white;
+    margin-bottom: 20px;
+    display:block;
+}
+
+#mail {
+    color:white;
+}
+
+/* About styles ended */
+
+/* Movies styles started */
+
+.select__item{
+    height:50px;
+    width:150px;
+    margin-left:30%;
+    background-color:transparent;
+    color:white;
+    font-size:15px;
+    padding:0px;
+}
+
+.selected__genre__item{
+    margin-right: 82px;
+    background-color:transparent;
+}
+
+.select__movieRaring{
+    height:50px;
+    width:160px;
+    background-color:transparent;
+    color:white;
+    font-size:15px;
+    padding:0px;
+}
+
+.selected__movieRaring__item{
+    margin-right: 50 px;
+    background-color:transparent;
+}
+
+.movieRating__content{
+    color: white;
+    font-size : 25px;
+}
+
+/* Movies styles ended */
+
+/* UserRating styles started */
+
+.wrapper__rating{
+    margin-left: 150px;
+    max-width: 1060px;
+    margin: 0 auto;
+    color:white;
+
+}
+
+.table{
+    width:100%;
+    height:500px;
+    color:black;
+    background-color:#b0aba5;
+}
+
+.pagination__container{
+    padding-bottom: 10%;
+}
+
+.pagination {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pagination a {
+    color: white;
+    text-decoration: none;
+    border: 1px #c2d1df solid;
+    padding: 2px 5px;
+    margin-right: 5px;
+}
+
+.pagination a:hover {
+    color: #3b5998;
+    text-decoration: none;
+    border: 1px #3b5998 solid;
+}
+
+/* UserRating styles ended */
+
+.header__nav{
+
+}
+
+input{
+    margin: 15px;
+}
+
+.movie__reviews{
+    margin-top: 10%;
+    margin-left: 10%;
+    width: 70%;
+    margin-bottom: 5%;
+}
+
+.custom__tag{
+    color:white;
+}
+
+.user__review {
+    background-color: grey;
+    border: 1px #c2d1df solid;
+}
