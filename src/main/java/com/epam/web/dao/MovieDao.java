@@ -31,7 +31,7 @@ public interface MovieDao extends Dao<Movie> {
      * Loads movies for specified page number
      * @param pageNumber number of page, on which received movies will be displayed
      * @return List instances of movies in range N * (pageNumber - 1) .. N * pageNumber,
-     * where N - is amount of movies per one page. Concrete value of fmovies per page may depends on
+     * where N - is amount of movies per one page. Concrete value of movies per page may depends on
      * implementation
      * @throws DaoException is request to storage is corrupted
      */

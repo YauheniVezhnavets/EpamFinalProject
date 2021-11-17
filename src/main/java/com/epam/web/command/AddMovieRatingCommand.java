@@ -36,7 +36,7 @@ public class AddMovieRatingCommand implements Command {
         String movieRatingAsString = request.getParameter("rating");
         long movieRating = Long.parseLong(movieRatingAsString);
 
-        if (!movieRatingService.checkRating(movieId, userId)) {
+        if (movieRatingService.checkRating(movieId, userId)) {
             movieRatingService.rateMovie(movieId, userId, movieRating);
         }
         if (movieRatingService.checkRating(movieId, userId)) {

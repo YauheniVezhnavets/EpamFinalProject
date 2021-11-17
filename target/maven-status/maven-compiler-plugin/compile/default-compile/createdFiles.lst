@@ -11,14 +11,17 @@ com/epam/web/entities/Identifiable.class
 com/epam/web/dao/UserDao.class
 com/epam/web/dao/AbstractDao.class
 com/epam/web/command/CommandResult.class
+com/epam/web/entities/Rating.class
 com/epam/web/command/LogoutCommand.class
 com/epam/web/command/LoginCommand.class
 com/epam/web/service/UserService.class
 com/epam/web/dao/DaoHelper.class
+com/epam/web/filter/AuthorizationFilter.class
 com/epam/web/entities/User.class
 com/epam/web/command/CommandFactory.class
 com/epam/web/dao/Dao.class
 com/epam/web/connection/ProxyConnection.class
 com/epam/web/dao/DaoException.class
 com/epam/web/connection/ConnectionException.class
+com/epam/web/entities/Role.class
 com/epam/web/connection/ConnectionFactory.class

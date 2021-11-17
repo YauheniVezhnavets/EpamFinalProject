@@ -24,18 +24,22 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="59d10877-9551-4ba1-b087-8a663942e1b9">
+        <schema name="movies_database" object-types="function, index, dataset trigger, constraint, procedure, view, table, column" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="df0ba5de-2c6e-4804-a1ea-3e89b0014d30">
-      <console name="movies_database" type="STANDARD" schema="mysql" session="Main" />
+    <connection id="59d10877-9551-4ba1-b087-8a663942e1b9">
+      <console name="movies_database" type="STANDARD" schema="movies_database" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="df0ba5de-2c6e-4804-a1ea-3e89b0014d30" />
+    <connection id="59d10877-9551-4ba1-b087-8a663942e1b9" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -68,7 +72,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="df0ba5de-2c6e-4804-a1ea-3e89b0014d30" active="true">
+      <connection id="59d10877-9551-4ba1-b087-8a663942e1b9" active="true">
         <database>
           <name value="movies_database" />
           <description value="" />

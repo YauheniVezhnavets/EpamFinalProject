@@ -1,7 +1,7 @@
 package com.epam.web.entities;
 
 
-public class Movie implements Identifiable {
+public class  Movie implements Identifiable {
 
     private Long id;
     private String name;
